@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="services_azul">#3D7BF7</color>
+    <color name="services_borde">#E6E8EE</color>
+    <color name="services_texto">#1C1C1C</color>
+    <color name="appointment_gris">#8A8FA3</color>
+    <color name="appointment_verde">#2BC66A</color>
+</resources>
