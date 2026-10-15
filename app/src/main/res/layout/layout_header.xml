@@ -1,6 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="340dp"
+    android:background="@drawable/header_fondo">
+
+    <!-- Foto del doctor: va la primera para que quede DETRÁS de los textos -->
+    <ImageView
+        android:id="@+id/imgDoctor"
+        android:layout_width="200dp"
+        android:layout_height="260dp"
+        android:contentDescription="Doctor"
+        android:scaleType="fitEnd"
+        android:src="@drawable/fotoduo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Avatar redondo: una tarjeta con esquinas de la mitad del tamaño = círculo -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardAvatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Avatar"
+            android:scaleType="centerCrop"
+            android:src="@drawable/selfieyo" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Campana dentro de un círculo blanco -->
+    <ImageView
+        android:id="@+id/imgCampana"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/header_circulo"
+        android:contentDescription="Notificaciones"
+        android:padding="12dp"
+        android:src="@drawable/ic_campana"
+        app:tint="@color/header_texto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cardAvatar" />
+
+    <!-- "Welcome!" debajo del avatar -->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/header_welcome"
+        android:textColor="@color/header_texto"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/cardAvatar"
+        app:layout_constraintTop_toBottomOf="@id/cardAvatar" />
+
+    <!-- Nombre debajo de "Welcome!" -->
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/header_nombre"
+        android:textColor="@color/header_texto"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/tvWelcome"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+
+    <!-- Subtítulo gris -->
+    <TextView
+        android:id="@+id/tvSubtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/header_subtitulo"
+        android:textColor="@color/header_gris"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/tvWelcome"
+        app:layout_constraintTop_toBottomOf="@id/tvNombre" />
+
+    <!-- Botón naranja con icono -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUrgente"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:text="@string/header_urgente"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:backgroundTint="@color/header_naranja"
+        app:cornerRadius="28dp"
+        app:icon="@drawable/ic_urgente"
+        app:iconTint="@android:color/white"
+        app:layout_constraintStart_toStartOf="@id/tvWelcome"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
