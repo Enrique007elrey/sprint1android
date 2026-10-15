@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="80dp"
+    android:background="@android:color/white">
+
+    <!-- 5 elementos en fila con una CHAIN horizontal (spread):
+         cada uno está atado al anterior y al siguiente, y el primero y el
+         último a los bordes del padre. Así se reparten solos el ancho. -->
+
+    <ImageView
+        android:id="@+id/navHome"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:contentDescription="Inicio"
+        android:src="@drawable/ic_home"
+        app:tint="@color/nav_azul"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/navDocumento"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/navDocumento"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:contentDescription="Documentos"
+        android:src="@drawable/ic_documento"
+        app:tint="@color/nav_gris"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/navAdd"
+        app:layout_constraintStart_toEndOf="@id/navHome"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Botón central redondo azul oscuro -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/navAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Añadir"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/nav_azul_oscuro"
+        app:elevation="0dp"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+        app:tint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/navChat"
+        app:layout_constraintStart_toEndOf="@id/navDocumento"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/navChat"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:contentDescription="Mensajes"
+        android:src="@drawable/ic_chat"
+        app:tint="@color/nav_gris"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/navPerfil"
+        app:layout_constraintStart_toEndOf="@id/navAdd"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/navPerfil"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:contentDescription="Perfil"
+        android:src="@drawable/person"
+        app:tint="@color/nav_gris"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/navChat"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
