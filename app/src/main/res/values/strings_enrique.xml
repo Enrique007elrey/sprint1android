@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="header_welcome">Welcome!</string>
-    <string name="header_nombre">Rajesh</string>
+    <string name="header_nombre">Enrique</string>
     <string name="header_subtitulo">How is it going today?</string>
     <string name="header_urgente">Urgent Care</string>
 </resources>
