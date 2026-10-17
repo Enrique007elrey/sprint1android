@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="services_titulo">Nuestros servicios</string>
+    <string name="services_consulta">Consulta</string>
+    <string name="services_medicinas">Medicinas</string>
+    <string name="services_ambulancia">Ambulancia</string>
+    <string name="appointment_titulo">Cita</string>
+    <string name="appointment_ver_todo">Ver todo</string>
+    <string name="appointment_fecha_titulo">Fecha de la cita</string>
+    <string name="appointment_fecha">Mié 20 nov  •  8:00 - 8:30</string>
+    <string name="appointment_doctor">Dr. Pol</string>
+    <string name="appointment_especialidad">Traumatología</string>
+</resources>

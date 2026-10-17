@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingBottom="16dp">
+
+    <!-- "Appointment" a la izquierda -->
+    <TextView
+        android:id="@+id/tvCita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/appointment_titulo"
+        android:textColor="@color/services_texto"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- "See All" a la derecha, alineado por la línea base del texto con "Appointment" -->
+    <TextView
+        android:id="@+id/tvVerTodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="@string/appointment_ver_todo"
+        android:textColor="@color/services_azul"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvCita"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- TARJETA: un ConstraintLayout dentro de otro, con fondo blanco redondeado y sombra.
+         Ancho 0dp = ocupa todo el espacio entre sus restricciones start y end -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardCita"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/appointment_fondo"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCita">
+
+        <!-- Barra azul de la izquierda: alto 0dp + atada arriba y abajo = ocupa todo el alto -->
+        <View
+            android:id="@+id/barraAzul"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/services_azul"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFechaTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/appointment_fecha_titulo"
+            android:textColor="@color/appointment_gris"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/barraAzul"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Tres puntitos arriba a la derecha -->
+        <ImageView
+            android:id="@+id/imgMasOpciones"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:contentDescription="Opciones"
+            android:src="@drawable/ic_mas_opciones"
+            app:tint="@color/appointment_gris"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgReloj"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="Hora"
+            android:src="@drawable/ic_reloj"
+            app:tint="@color/services_texto"
+            app:layout_constraintStart_toStartOf="@id/tvFechaTitulo"
+            app:layout_constraintTop_toBottomOf="@id/tvFechaTitulo" />
+
+        <!-- Fecha a la derecha del reloj, centrada verticalmente con él (top y bottom al reloj) -->
+        <TextView
+            android:id="@+id/tvFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/appointment_fecha"
+            android:textColor="@color/services_texto"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/imgReloj"
+            app:layout_constraintStart_toEndOf="@id/imgReloj"
+            app:layout_constraintTop_toTopOf="@id/imgReloj" />
+
+        <!-- Línea separadora gris de 1dp -->
+        <View
+            android:id="@+id/lineaSeparadora"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/services_borde"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvFechaTitulo"
+            app:layout_constraintTop_toBottomOf="@id/imgReloj" />
+
+        <!-- Foto del doctor redonda (tarjeta con radio = mitad del tamaño) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFotoDoctor"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="26dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvFechaTitulo"
+            app:layout_constraintTop_toBottomOf="@id/lineaSeparadora">
+
+            <ImageView
+                android:id="@+id/imgDoctorCita"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/appointment_doctor"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pol_doctor" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Icono de video verde en la esquina de la foto (atado abajo y a la derecha de la foto) -->
+        <ImageView
+            android:id="@+id/imgVideo"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/appointment_circulo_verde"
+            android:contentDescription="Videollamada"
+            android:padding="4dp"
+            android:src="@drawable/ic_video"
+            app:tint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/cardFotoDoctor"
+            app:layout_constraintEnd_toEndOf="@id/cardFotoDoctor" />
+
+        <TextView
+            android:id="@+id/tvDoctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/appointment_doctor"
+            android:textColor="@color/services_texto"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/cardFotoDoctor"
+            app:layout_constraintTop_toTopOf="@id/cardFotoDoctor" />
+
+        <TextView
+            android:id="@+id/tvEspecialidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/appointment_especialidad"
+            android:textColor="@color/appointment_gris"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/tvDoctor"
+            app:layout_constraintTop_toBottomOf="@id/tvDoctor" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
