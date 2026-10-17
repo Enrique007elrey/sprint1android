@@ -50,17 +50,28 @@
         app:layout_constraintTop_toBottomOf="@id/tvCita">
 
         <!-- Barra azul de la izquierda: alto 0dp + atada arriba y abajo = ocupa todo el alto -->
+        <View
+            android:id="@+id/barraAzul"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/services_azul"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvFechaTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/appointment_fecha_titulo"
             android:textColor="@color/appointment_gris"
             android:textSize="13sp"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="20dp" />
+            app:layout_constraintStart_toEndOf="@id/barraAzul"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Tres puntitos arriba a la derecha -->
         <ImageView
